@@ -1,0 +1,12 @@
+{
+  "name": "portfolio-workspace",
+  "private": true,
+  "workspaces": [
+    "portfolio"
+  ],
+  "scripts": {
+    "dev": "npm --workspace portfolio run dev",
+    "build": "npm --workspace portfolio run build",
+    "preview": "npm --workspace portfolio run preview"
+  }
+}

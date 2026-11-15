@@ -1,0 +1,52 @@
+---
+interface Props {
+  tag: string;
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  href?: string;
+}
+const { tag, title, description, image, imageAlt, href = '#' } = Astro.props;
+---
+
+<article class="card">
+  <div class="card__thumb">
+    <div class="card__thumb-inner">
+      <img src={image} alt={imageAlt} />
+    </div>
+  </div>
+  <div class="card__body">
+    <p class="card__tag">{tag}</p>
+    <h3 class="card__title">{title}</h3>
+    <p class="card__desc">{description}</p>
+    <a class="card__cta" href={href}>Ver proyecto →</a>
+  </div>
+</article>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .card:hover { transform: translateY(-4px); border-color: #3a4b70; }
+  .card__thumb { background: var(--grad-v); padding: 8px; }
+  .card__thumb-inner {
+    display: grid;
+    place-items: center;
+    height: 224px;
+    background: var(--panel);
+  }
+  .card__thumb-inner img { max-height: 180px; max-width: 80%; object-fit: contain; }
+  .card__body { display: flex; flex-direction: column; gap: 12px; padding: 24px 24px 28px; flex: 1; }
+  .card__tag { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); }
+  .card__title { font-size: 24px; font-weight: 700; line-height: 1.25; }
+  .card__desc { font-size: 15px; line-height: 1.55; color: var(--muted); }
+  .card__cta { margin-top: auto; font-size: 15px; font-weight: 600; color: var(--blue); }
+  .card__cta:hover { text-decoration: underline; }
+</style>

@@ -1,0 +1,53 @@
+---
+import ProjectCard from './ProjectCard.astro';
+
+const projects = [
+  {
+    tag: 'Web',
+    title: 'KehilApp',
+    description:
+      'Una Web para centralizar los horarios haiajicos y un mapa con lugares relacionados al judaismo',
+    image: '/images/kehilapp.png',
+    imageAlt: 'Logo de KehilApp',
+    href: '#',
+  },
+  {
+    tag: 'Simulador VR',
+    title: 'Air Crash Simulator',
+    description:
+      'Un simulador VR 3D para presenciar el protocolo de emergencia tras un accidente aereo',
+    image: '/images/air-crash-simulator.png',
+    imageAlt: 'Logo de Air Crash Simulator',
+    href: '#',
+  },
+  {
+    tag: 'Web',
+    title: 'PCity',
+    description:
+      'Una web para aprender sobre componentes de computadora, crear la tuya propia o comparar distintos productos',
+    image: '/images/pcity.png',
+    imageAlt: 'Logo de PCity',
+    href: '#',
+  },
+];
+---
+
+<section id="projectos" class="section section--tint">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">Proyectos</p>
+      <h2 class="section-title">Mis projectos</h2>
+      <p class="section-subtitle">Los proyecto que hice durante mi instancia secundaria</p>
+    </div>
+
+    <div class="grid">
+      {projects.map((p) => <ProjectCard {...p} />)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 960px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 620px) { .grid { grid-template-columns: 1fr; } }
+</style>

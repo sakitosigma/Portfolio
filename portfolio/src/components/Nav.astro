@@ -1,0 +1,115 @@
+---
+const links = [
+  { href: '#inicio', label: 'Inicio' },
+  { href: '#projectos', label: 'Projectos' },
+  { href: '#estudios', label: 'Mis estudios' },
+  { href: '#habilidades', label: 'Hbilidades' },
+  { href: '#contacto', label: 'Contacto' },
+];
+---
+
+<header class="nav">
+  <div class="nav__inner">
+    <a class="brand" href="#inicio">
+      <span class="brand__logo">IC</span>
+      <span class="brand__text">
+        <span class="brand__name">Isaac Cohen Sabban</span>
+        <span class="brand__role">Estudiante para Bioingeniero</span>
+      </span>
+    </a>
+
+    <nav class="nav__links" aria-label="Principal">
+      {links.map((l, i) => (
+        <a href={l.href} class:list={['nav__link', { 'is-active': i === 0 }]}>{l.label}</a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 16px 24px;
+    background: rgb(10 16 32 / 92%);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(16px);
+  }
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    max-width: 1872px;
+    margin-inline: auto;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand__logo {
+    display: grid;
+    place-items: center;
+    width: 68px;
+    height: 68px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #7be04a, #1e5ab8);
+    color: #06101f;
+    font-weight: 700;
+    font-size: 32px;
+  }
+  .brand__text { display: flex; flex-direction: column; white-space: nowrap; }
+  .brand__name { font-size: 32px; font-weight: 600; color: var(--text); }
+  .brand__role { font-size: 20px; color: var(--muted); }
+
+  .nav__links {
+    display: flex;
+    gap: 4px;
+    padding: 6px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+  }
+  .nav__link {
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--muted);
+    white-space: nowrap;
+    transition: color 0.15s ease, background 0.15s ease;
+  }
+  .nav__link:hover { color: var(--text); }
+  .nav__link.is-active { background: #fff; color: #0a1120; }
+
+  @media (max-width: 1100px) {
+    .brand__logo { width: 48px; height: 48px; font-size: 20px; }
+    .brand__name { font-size: 20px; }
+    .brand__role { font-size: 14px; }
+    .nav__link { font-size: 16px; padding: 8px 14px; }
+  }
+  @media (max-width: 760px) {
+    .nav__inner { justify-content: center; }
+    .nav__links { overflow-x: auto; max-width: 100%; }
+  }
+</style>
+
+<script>
+  // Marca como activo el link de la sección visible
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('.nav__link'));
+  const sections = links
+    .map((l) => document.querySelector(l.getAttribute('href') ?? ''))
+    .filter((s): s is Element => !!s);
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        links.forEach((l) =>
+          l.classList.toggle('is-active', l.getAttribute('href') === `#${entry.target.id}`),
+        );
+      });
+    },
+    { rootMargin: '-40% 0px -55% 0px' },
+  );
+  sections.forEach((s) => observer.observe(s));
+</script>
