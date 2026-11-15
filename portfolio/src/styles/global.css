@@ -19,7 +19,17 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; min-width: 320px; }
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: #0b1a2b;
+  background-image: url('/images/adn.png'), linear-gradient(125deg, #0b192d 0%, #082a35 52%, #063b35 100%);
+  background-position: center top, center;
+  background-size: 100% auto, cover;
+  background-repeat: repeat-y, no-repeat;
+  background-blend-mode: screen, normal;
+  background-attachment: scroll;
+}
 img { display: block; max-width: 100%; }
 a { color: inherit; }
 .container { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
