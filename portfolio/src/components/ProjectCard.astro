@@ -20,7 +20,6 @@ const { tag, title, description, image, imageAlt, href = '#' } = Astro.props;
     <p class="card__tag">{tag}</p>
     <h3 class="card__title">{title}</h3>
     <p class="card__desc">{description}</p>
-    <a class="card__cta" href={href}>Ver proyecto →</a>
   </div>
 </article>
 
@@ -39,14 +38,13 @@ const { tag, title, description, image, imageAlt, href = '#' } = Astro.props;
   .card__thumb-inner {
     display: grid;
     place-items: center;
-    height: 224px;
+    height: clamp(150px, 11.5vw, 220px);
     background: var(--panel);
   }
-  .card__thumb-inner img { max-height: 180px; max-width: 80%; object-fit: contain; }
-  .card__body { display: flex; flex-direction: column; gap: 12px; padding: 24px 24px 28px; flex: 1; }
+  .card__thumb-inner img { max-height: min(180px, 9.4vw); max-width: 80%; object-fit: contain; }
+  .card__body { display: flex; flex-direction: column; gap: 8px; padding: clamp(14px, .9vw, 18px) clamp(16px, 1.25vw, 24px) clamp(16px, 1vw, 20px); }
+  .card__tag, .card__title, .card__desc { margin: 0; }
   .card__tag { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); }
-  .card__title { font-size: 24px; font-weight: 700; line-height: 1.25; }
+  .card__title { font-size: clamp(17px, 1.1vw, 21px); font-weight: 700; line-height: 1.25; }
   .card__desc { font-size: 15px; line-height: 1.55; color: var(--muted); }
-  .card__cta { margin-top: auto; font-size: 15px; font-weight: 600; color: var(--blue); }
-  .card__cta:hover { text-decoration: underline; }
 </style>

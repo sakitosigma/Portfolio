@@ -1,9 +1,9 @@
 ---
 const links = [
   { href: '#inicio', label: 'Inicio' },
-  { href: '#projectos', label: 'Projectos' },
+  { href: '#proyectos', label: 'Proyectos' },
   { href: '#estudios', label: 'Mis estudios' },
-  { href: '#habilidades', label: 'Hbilidades' },
+  { href: '#habilidades', label: 'Habilidades' },
   { href: '#contacto', label: 'Contacto' },
 ];
 ---
@@ -31,7 +31,7 @@ const links = [
     position: sticky;
     top: 0;
     z-index: 1000;
-    padding: 16px 24px;
+    padding: 10px 24px;
     background: rgb(10 16 32 / 0%);
     border-bottom: 1px solid var(--border);
     backdrop-filter: blur(16px);
@@ -49,30 +49,30 @@ const links = [
   .brand__logo {
     display: grid;
     place-items: center;
-    width: 56px;
-    height: 56px;
+    width: 48px;
+    height: 48px;
     border-radius: 999px;
     background: linear-gradient(90deg, #7be04a, #1e5ab8);
     color: #06101f;
     font-weight: 700;
-    font-size: 26px;
+    font-size: 22px;
   }
   .brand__text { display: flex; flex-direction: column; white-space: nowrap; }
-  .brand__name { font-size: 27px; font-weight: 600; color: var(--text); }
-  .brand__role { font-size: 17px; color: var(--muted); }
+  .brand__name { font-size: 24px; font-weight: 600; color: var(--text); }
+  .brand__role { font-size: 15px; color: var(--muted); }
 
   .nav__links {
     display: flex;
     gap: 4px;
-    padding: 6px;
+    padding: 4px;
     background: var(--surface-2);
     border: 1px solid var(--border);
     border-radius: 999px;
   }
   .nav__link {
-    padding: 10px 20px;
+    padding: 8px 16px;
     border-radius: 999px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
     color: var(--muted);
     white-space: nowrap;
@@ -88,6 +88,7 @@ const links = [
     .nav__link { font-size: 15px; padding: 8px 12px; }
   }
   @media (max-width: 760px) {
+    .nav { padding-inline: 16px; }
     .nav__inner { justify-content: center; }
     .nav__links { overflow-x: auto; max-width: 100%; }
   }

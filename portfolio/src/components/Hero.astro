@@ -19,12 +19,12 @@
 </section>
 
 <style>
-  .hero { padding-block: 72px 88px; }
+  .hero { padding-block: 116px 112px; }
   .hero__inner {
     display: grid;
-    grid-template-columns: 1fr 380px;
+    grid-template-columns: minmax(0, 1fr) min(19.8vw, 380px);
     align-items: center;
-    gap: 64px;
+    gap: clamp(36px, 6.25vw, 120px);
   }
   .hero__eyebrow {
     font-size: 18px;
@@ -34,24 +34,26 @@
     margin-bottom: 24px;
   }
   .hero__name {
-    font-size: clamp(44px, 6vw, 68px);
+    font-size: clamp(38px, 3.35vw, 64px);
     line-height: 1.1;
     font-weight: 700;
     letter-spacing: -0.02em;
     margin-bottom: 24px;
   }
   .hero__bio {
-    font-size: clamp(18px, 2vw, 24px);
+    font-size: clamp(16px, 1.25vw, 24px);
     line-height: 1.25;
     font-weight: 600;
     color: var(--blue);
     max-width: 640px;
   }
-  .hero__photo { width: 380px; height: 450px; border-radius: 36px; overflow: hidden; }
+  .hero__photo { width: min(19.8vw, 380px); aspect-ratio: 380 / 450; height: auto; border-radius: 36px; overflow: hidden; }
   .hero__photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 32px; }
 
   @media (max-width: 900px) {
+    .hero { padding-block: 64px 76px; }
     .hero__inner { grid-template-columns: 1fr; gap: 48px; justify-items: center; text-align: center; }
+    .hero__inner { width: min(100% - 32px, 700px); }
     .hero__photo { width: min(340px, 100%); height: auto; aspect-ratio: 380 / 450; }
   }
 </style>

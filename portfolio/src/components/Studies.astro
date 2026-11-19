@@ -25,7 +25,6 @@ const studies = [
           <img src={s.image} alt={s.alt} />
         </div>
         <div class="study__card">
-          <span class="study__bar"></span>
           <h3 class="study__title">{s.school}</h3>
           <p class="study__text">{s.text}</p>
         </div>
@@ -35,15 +34,14 @@ const studies = [
 </section>
 
 <style>
-  .section { padding-block: 60px; }
   .studies { display: grid; gap: 40px; }
-  .study { display: flex; align-items: center; gap: 32px; max-width: 932px; }
+  .study { display: flex; align-items: center; gap: 40px; max-width: 932px; }
   .study--reverse { flex-direction: row-reverse; margin-left: auto; }
 
   .study__logo {
     flex: none;
-    width: 172px;
-    height: 186px;
+    width: clamp(150px, 9.7vw, 186px);
+    height: clamp(160px, 10.4vw, 200px);
     padding: 8px;
     border-radius: 32px;
     background: linear-gradient(135deg, #1e5ab8, #7be04a);
@@ -61,15 +59,16 @@ const studies = [
   .study__card {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    padding: 28px;
+    gap: 10px;
+    min-height: clamp(160px, 10.4vw, 200px);
+    padding: clamp(16px, 1.05vw, 20px);
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 24px;
   }
-  .study__bar { width: 44px; height: 6px; border-radius: 3px; background: var(--grad-h); }
-  .study__title { font-size: 22px; font-weight: 700; }
-  .study__text { font-size: 15px; line-height: 1.55; color: var(--muted); }
+  .study__title, .study__text { margin: 0; }
+  .study__title { font-size: 19px; font-weight: 700; }
+  .study__text { font-size: 14px; line-height: 1.45; color: var(--muted); }
 
   @media (max-width: 760px) {
     .study, .study--reverse { flex-direction: column; margin-left: 0; align-items: stretch; }

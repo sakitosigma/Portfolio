@@ -1,7 +1,6 @@
 ---
-// Reemplazá por tus datos reales
-const email = 'mailto:tu-correo@ejemplo.com';
-const linkedin = 'https://www.linkedin.com/in/tu-usuario';
+const email = 'mailto:fede.cohen.sabban@gmail.com';
+const linkedin = 'https://www.linkedin.com/in/tobias-german-b89632322/';
 ---
 
 <section id="contacto" class="section">
@@ -9,7 +8,7 @@ const linkedin = 'https://www.linkedin.com/in/tu-usuario';
     <div class="contact">
       <h2 class="contact__title">Contactame</h2>
       <div class="contact__actions">
-        <a class="btn btn--light" href={email}>Mail</a>
+        <a class="btn btn--light" href={email}>Mail: fede.cohen.sabban@gmail.com</a>
         <a class="btn btn--ghost" href={linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
     </div>
@@ -17,17 +16,17 @@ const linkedin = 'https://www.linkedin.com/in/tu-usuario';
 </section>
 
 <style>
-  .section { padding-block: 110px; }
+  .section { padding-block: clamp(72px, 5.75vw, 110px); }
   .contact {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 22px;
-    padding: 72px 24px;
+    gap: 18px;
+    padding: clamp(48px, 3.35vw, 64px) 24px;
     border-radius: 40px;
     background: var(--grad-h);
     text-align: center;
   }
-  .contact__title { font-size: clamp(36px, 5vw, 48px); font-weight: 700; letter-spacing: -0.02em; }
+  .contact__title { margin: 0; font-size: clamp(36px, 5vw, 48px); line-height: 1.1; font-weight: 700; letter-spacing: -0.02em; }
   .contact__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
 </style>

@@ -32,8 +32,23 @@ body {
 }
 img { display: block; max-width: 100%; }
 a { color: inherit; }
-.container { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+.container { width: min(1200px, 62.5vw); margin-inline: auto; }
+
+/* Shared section rhythm and heading scale */
+.section { padding-block: 88px; }
+.section-header { margin-bottom: 44px; }
+.eyebrow { margin-bottom: 14px; font-size: 16px; font-weight: 600; letter-spacing: .12em; color: var(--teal); }
+.section-title { margin: 0 0 8px; font-size: clamp(30px, 3.1vw, 60px); line-height: 1.08; letter-spacing: -.02em; }
+.section-subtitle { margin: 0; font-size: clamp(15px, 1.1vw, 21px); line-height: 1.45; color: var(--muted); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
+
+@media (max-width: 760px) {
+  .container { width: min(100% - 32px, 560px); }
+  .section { padding-block: 64px; }
+  .section-header { margin-bottom: 28px; }
+  .section-title { font-size: clamp(32px, 8vw, 44px); }
+  .section-subtitle { font-size: 17px; }
 }
